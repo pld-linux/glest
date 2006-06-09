@@ -40,11 +40,11 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_sysconfdir}/%{name},%{_bindir}}
 install glest $RPM_BUILD_ROOT%{_bindir}/%{name}
 install glest.ini $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/glest.ini
-ln -s %{_sysconfdir}/%{name}.ini $RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.ini
+ln -s %{_sysconfdir}/%{name}/%{name}.ini $RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.ini
 ln -s %{_bindir}/%{name} $RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}
 cd glest_game
 install configuration.xml $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/configuration.xml
-ln -s %{_sysconfdir}/configuration.xml $RPM_BUILD_ROOT%{_datadir}/%{name}/configuration.xml
+ln -s %{_sysconfdir}/%{name}/configuration.xml $RPM_BUILD_ROOT%{_datadir}/%{name}/configuration.xml
 rm configuration.xml
 rm glest.ini
 cp -r ./* $RPM_BUILD_ROOT%{_datadir}/%{name}
