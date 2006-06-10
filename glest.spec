@@ -19,6 +19,8 @@ BuildRequires:	jam >= 2.5
 BuildRequires:	libogg-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	xerces-c-devel
+BuildRequires:	unzip
+BuildRequires:	Mesa-libGLU-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
