@@ -1,4 +1,7 @@
 #
+#TODO
+# - patch for search glest.ini (HOME_ETC) in glest_game/config.cpp  glest_game/main_menu.cpp  glest_game/renderer.cpp
+# - copy glest_game directory (data game) from SOURCE1 without program source files
 Summary:	Glest - 3D real time strategy game
 Summary(pl):	Glest - Strategia 3D czasu rzeczywistego.
 Name:		glest
