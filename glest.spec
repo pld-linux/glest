@@ -15,15 +15,15 @@ Source1:	http://dl.sourceforge.net/glest/%{name}_data_v%{version}.zip
 # Source1-md5:	bbf40de52ad412b1e36fc3bc1f6822fc
 #Patch0: %{name}-DESTDIR.patch
 URL:		http://www.glest.org/
+BuildRequires:	Mesa-libGLU-devel
 BuildRequires:	OpenAL-devel
 BuildRequires:	SDL-devel >= 1.2.5
 BuildRequires:	X11-devel
 BuildRequires:	jam >= 2.5
 BuildRequires:	libogg-devel
 BuildRequires:	libvorbis-devel
-BuildRequires:	xerces-c-devel
 BuildRequires:	unzip
-BuildRequires:	Mesa-libGLU-devel
+BuildRequires:	xerces-c-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,6 +32,8 @@ operative systems and that can be modified using XML and a set of
 tools.
 
 %description -l pl
+Glest to darmowa gra 3D typu RTS(real time stategy), dostêpna dla
+ró¿nych systemów.
 
 %prep
 %setup -q -a0 -a1
