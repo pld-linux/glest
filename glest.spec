@@ -2,8 +2,9 @@
 #TODO
 # - patch for search glest.ini (HOME_ETC) in glest_game/config.cpp  glest_game/main_menu.cpp  glest_game/renderer.cpp
 # - copy glest_game directory (data game) from SOURCE1 without program source files
+# - check for additional xorg deps
 Summary:	Glest - 3D real time strategy game
-Summary(pl):	Glest - Strategia 3D czasu rzeczywistego.
+Summary(pl):	Glest - Strategia 3D czasu rzeczywistego
 Name:		glest
 Version:	1.1.0
 Release:	0.1
@@ -15,10 +16,9 @@ Source1:	http://dl.sourceforge.net/glest/%{name}_data_v%{version}.zip
 # Source1-md5:	bbf40de52ad412b1e36fc3bc1f6822fc
 #Patch0: %{name}-DESTDIR.patch
 URL:		http://www.glest.org/
-BuildRequires:	Mesa-libGLU-devel
 BuildRequires:	OpenAL-devel
+BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel >= 1.2.5
-BuildRequires:	X11-devel
 BuildRequires:	jam >= 2.5
 BuildRequires:	libogg-devel
 BuildRequires:	libvorbis-devel
@@ -32,11 +32,12 @@ operative systems and that can be modified using XML and a set of
 tools.
 
 %description -l pl
-Glest to darmowa gra 3D typu RTS(real time stategy), dostêpna dla
-ró¿nych systemów.
+Glest to darmowa gra 3D typu RTS (real time stategy), dostêpna dla
+kilku ró¿nych systemów operacyjnych. Mo¿na j± modyfikowaæ przy u¿yciu
+XML-a i zestawu narzêdzi.
 
 %prep
-%setup -q -a0 -a1
+%setup -q -a1
 
 %build
 %configure
@@ -55,7 +56,6 @@ ln -s %{_sysconfdir}/%{name}/configuration.xml $RPM_BUILD_ROOT%{_datadir}/%{name
 rm configuration.xml
 rm glest.ini
 cp -r ./* $RPM_BUILD_ROOT%{_datadir}/%{name}
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
