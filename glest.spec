@@ -14,6 +14,8 @@ Source0:	http://dl.sourceforge.net/glest/%{name}-source-%{version}.tar.bz2
 # Source0-md5:	f549d496789d4a54166a7c386232069e
 Source1:	http://dl.sourceforge.net/glest/%{name}_data_v%{version}.zip
 # Source1-md5:	bbf40de52ad412b1e36fc3bc1f6822fc
+Source2:	http://www.glest.org/files/contrib/translations/polish_1.0.9.zip
+# Source2-md5:	977df518ef4523fce1e833769e760e29
 #Patch0: %{name}-DESTDIR.patch
 URL:		http://www.glest.org/
 BuildRequires:	OpenAL-devel
@@ -37,7 +39,7 @@ kilku ró¿nych systemów operacyjnych. Mo¿na j± modyfikowaæ przy u¿yciu
 XML-a i zestawu narzêdzi.
 
 %prep
-%setup -q -a1
+%setup -q -a1 -a2
 
 %build
 %configure
@@ -48,6 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_sysconfdir}/%{name},%{_bindir}}
 install glest $RPM_BUILD_ROOT%{_bindir}/%{name}
 install glest.ini $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/glest.ini
+install polish.lng $RPM_BUILD_ROOT{_datadir}/%{name}/data/lang/
 ln -s %{_sysconfdir}/%{name}/%{name}.ini $RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.ini
 ln -s %{_bindir}/%{name} $RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}
 cd glest_game
