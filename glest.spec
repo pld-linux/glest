@@ -21,6 +21,7 @@ URL:		http://www.glest.org/
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel >= 1.2.5
+BuildRequires:	dos2unix
 BuildRequires:	jam >= 2.5
 BuildRequires:	libogg-devel
 BuildRequires:	libvorbis-devel
@@ -39,7 +40,7 @@ kilku ró¿nych systemów operacyjnych. Mo¿na j± modyfikowaæ przy u¿yciu
 XML-a i zestawu narzêdzi.
 
 %prep
-%setup -q -n glest_source_%{version} -a1 -a2
+%setup -q -n %{name}_source_%{version} -a1 -a2
 for file in xml ini log txt html lng; do
 	find ./ -noleaf -type f -name \*.$file -exec dos2unix '{}' \;
 done
