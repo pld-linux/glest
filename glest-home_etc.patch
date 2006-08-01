@@ -1,0 +1,82 @@
+--- glest_source_2.0.0/source/glest_game/facilities/logger.cpp.orig	2006-08-01 10:14:20.287831250 +0200
++++ glest_source_2.0.0/source/glest_game/facilities/logger.cpp	2006-08-01 10:15:51.867315750 +0200
+@@ -32,7 +32,9 @@
+ // ===================== PUBLIC ======================== 
+ 
+ Logger::Logger(){
+-	fileName= "log.txt";
++        string home;
++	home = getenv("HOME_ETC") ? getenv("HOME_ETC") : getenv("HOME");
++	this->fileName= home + "/.glest/log.txt";
+ }
+ 
+ Logger & Logger::getInstance(){
+--- glest_source_2.0.0/source/glest_game/facilities/logger.h.orig	2006-08-01 10:13:50.835273500 +0200
++++ glest_source_2.0.0/source/glest_game/facilities/logger.h	2006-08-01 10:14:00.200538500 +0200
+@@ -45,7 +45,11 @@
+ public:
+ 	static Logger & getInstance();
+ 	
+-	void setFile(const string &fileName)	{this->fileName= fileName;}
++	void setFile(const string &fileName){
++	        string home;
++		home = getenv("HOME_ETC") ? getenv("HOME_ETC") : getenv("HOME");
++		this->fileName= home + "/.glest/" + fileName;
++	}
+ 	void setState(const string &state);
+ 
+ 	void add(const string &str, bool renderScreen= false);
+--- glest_source_2.0.0/source/glest_game/main/program.cpp.orig	2006-08-01 11:52:37.788498000 +0200
++++ glest_source_2.0.0/source/glest_game/main/program.cpp	2006-08-01 11:56:43.419849000 +0200
+@@ -133,8 +133,10 @@
+ 
+ 	//save screen 
+ 	if(key=='T'){
++		string home;
++		home= getenv("HOME_ETC") ? getenv("HOME_ETC") : getenv("HOME");
+ 		for(int i=0; i<100; ++i){
+-			string path= "screens/screen" + intToStr(i) + ".tga";
++			string path= home + "/.glest/screens/screen" + intToStr(i) + ".tga";
+ 			
+ 			FILE *f= fopen(path.c_str(), "rb");
+ 			if(f==NULL){
+diff -Nur glest_source_2.0.0-orig/source/glest_game/global/config.cpp glest_source_2.0.0/source/glest_game/global/config.cpp
+--- glest_source_2.0.0-orig/source/glest_game/global/config.cpp	2005-11-12 02:45:10.000000000 +0100
++++ glest_source_2.0.0/source/glest_game/global/config.cpp	2006-08-01 21:08:40.786568000 +0200
+@@ -22,7 +22,8 @@
+ // =====================================================
+ 
+ Config::Config(){
+-	properties.load("glest.ini");
++        string home = getenv("HOME_ETC") ? getenv("HOME_ETC") : getenv("HOME");
++	properties.load(home + "/.glest/glest.ini");
+ }
+ 
+ Config &Config::getInstance(){
+diff -Nur glest_source_2.0.0-orig/source/glest_game/graphics/renderer.cpp glest_source_2.0.0/source/glest_game/graphics/renderer.cpp
+--- glest_source_2.0.0-orig/source/glest_game/graphics/renderer.cpp	2006-03-16 00:40:58.000000000 +0100
++++ glest_source_2.0.0/source/glest_game/graphics/renderer.cpp	2006-08-01 21:07:53.319883000 +0200
+@@ -198,7 +198,8 @@
+ 	if(config.getBool("FirstTime")){
+ 		config.setBool("FirstTime", false);
+ 		autoConfig();
+-		config.save("glest.ini");
++	        string home = getenv("HOME_ETC") ? getenv("HOME_ETC") : getenv("HOME");
++		config.save(home + "/.glest/glest.ini");
+ 	}
+ 
+ 	modelManager[rsGlobal]->init();
+diff -Nur glest_source_2.0.0-orig/source/glest_game/menu/main_menu.cpp glest_source_2.0.0/source/glest_game/menu/main_menu.cpp
+--- glest_source_2.0.0-orig/source/glest_game/menu/main_menu.cpp	2006-03-06 23:41:34.000000000 +0100
++++ glest_source_2.0.0/source/glest_game/menu/main_menu.cpp	2006-08-01 21:06:54.110596500 +0200
+@@ -773,8 +773,9 @@
+ void MenuStateConfig::saveConfig(){
+ 	Config &config= Config::getInstance();
+ 	Lang &lang= Lang::getInstance();
++        string home = getenv("HOME_ETC") ? getenv("HOME_ETC") : getenv("HOME");
+ 
+-	config.save("glest.ini");
++	config.save(home + "/.glest/glest.ini");
+ 	Renderer::getInstance().loadConfig();
+ 	SoundRenderer::getInstance().loadConfig();
+ }
