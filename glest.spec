@@ -4,7 +4,7 @@
 # - copy glest_game directory (data game) from SOURCE1 without program source files
 # - check for additional xorg deps
 Summary:	Glest - 3D real time strategy game
-Summary(pl.UTF-8):   Glest - Strategia 3D czasu rzeczywistego
+Summary(pl.UTF-8):	Glest - Strategia 3D czasu rzeczywistego
 Name:		glest
 Version:	2.0.0
 Release:	0.2
