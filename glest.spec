@@ -4,7 +4,7 @@
 # - copy glest_game directory (data game) from SOURCE1 without program source files
 # - check for additional xorg deps
 Summary:	Glest - 3D real time strategy game
-Summary(pl):	Glest - Strategia 3D czasu rzeczywistego
+Summary(pl.UTF-8):   Glest - Strategia 3D czasu rzeczywistego
 Name:		glest
 Version:	2.0.0
 Release:	0.2
@@ -67,10 +67,10 @@ Glest is a free 3D real time strategy game, available for several
 operative systems and that can be modified using XML and a set of
 tools.
 
-%description -l pl
-Glest to darmowa gra 3D typu RTS (real time stategy), dostêpna dla
-kilku ró¿nych systemów operacyjnych. Mo¿na j± modyfikowaæ przy u¿yciu
-XML-a i zestawu narzêdzi.
+%description -l pl.UTF-8
+Glest to darmowa gra 3D typu RTS (real time stategy), dostÄ™pna dla
+kilku rÃ³Å¼nych systemÃ³w operacyjnych. MoÅ¼na jÄ… modyfikowaÄ‡ przy uÅ¼yciu
+XML-a i zestawu narzÄ™dzi.
 
 %prep
 %setup -q -n %{name}_source_%{version} -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a12 -a13 -a14 -a15 -a16 -a17
