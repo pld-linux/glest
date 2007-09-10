@@ -6,14 +6,14 @@
 Summary:	Glest - 3D real time strategy game
 Summary(pl.UTF-8):	Glest - Strategia 3D czasu rzeczywistego
 Name:		glest
-Version:	2.0.0
-Release:	0.2
+Version:	2.0.1
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/glest/%{name}_source_%{version}.zip
-# Source0-md5:	f7716da7a044dbe108c619b0f52621bb
+# Source0-md5:	2d35a5d08331957f63240cadc9766b75
 Source1:	http://dl.sourceforge.net/glest/%{name}_data_%{version}.zip
-# Source1-md5:	8b6902e82874011e768c64e20fbeead5
+# Source1-md5:	0ca333baa78328f97c30a22063ea19fc
 Source2:	http://www.glest.org/files/contrib/translations/catala_1.2.2.zip
 # Source2-md5:	0ff52ece4c408f3a01a54dda8f17e994
 Source3:	http://www.glest.org/files/contrib/translations/cesky_1.2.1.zip
