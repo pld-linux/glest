@@ -52,7 +52,9 @@ Patch0:		%{name}-polish.patch
 Patch1:		%{name}-home_etc.patch
 URL:		http://www.glest.org/
 BuildRequires:	OpenAL-devel
-BuildRequires:	OpenGL-GLU-devel
+BuildRequires:	Mesa-libGL-devel
+BuildRequires:	Mesa-libGLU-devel
+BuildRequires:	Mesa-libGLw-devel
 BuildRequires:	SDL-devel >= 1.2.5
 BuildRequires:	dos2unix
 BuildRequires:	jam >= 2.5
@@ -73,7 +75,7 @@ kilku różnych systemów operacyjnych. Można ją modyfikować przy użyciu
 XML-a i zestawu narzędzi.
 
 %prep
-%setup -q -n %{name}_source_%{version} -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a12 -a13 -a14 -a15 -a16 -a17
+%setup -q -c -a1 -a2 -a3 -a4 -a5 -a6 -a7 -a8 -a9 -a10 -a11 -a12 -a13 -a14 -a15 -a16 -a17
 for file in xml ini log txt html lng; do
 	find ./ -noleaf -type f -name \*.$file -exec dos2unix '{}' \;
 done
@@ -86,7 +88,9 @@ chmod +x mk/linux/autogen.sh
 %build
 cd mk/linux
 ./autogen.sh
-%configure
+%configure \
+	--with-x \
+	--enable-optimize 
 jam
 
 %install
