@@ -1,8 +1,12 @@
---- polish.lng.orig	2006-07-31 22:17:55.945633000 +0200
-+++ polish.lng	2006-07-31 22:16:24.000000000 +0200
-@@ -6,12 +6,14 @@
+--- glest-3.2.2/polish.lng.pl	2009-06-07 10:50:04.000000000 +0200
++++ glest-3.2.2/polish.lng	2009-06-07 11:09:32.000000000 +0200
+@@ -4,14 +4,19 @@
+ 3dAnd2dArt=Grafika 3D i 2D
+ 2dArtAndWeb=Grafika i Web 2D
  About=Info
++Address=Adres
  AlreadyUpgraded=Juz ulepszone
++All=Wszystko
  AmbientVolume=Glosnosc ogolna
 +Animation=Animacja
  Armor=Pancerz
@@ -12,10 +16,21 @@
  AttackStopped=Atak zatrzymany
  AttackStrenght=Obrazenia
 +AutoConfig=Autokonfig.
++BattleOver=Bitwa zakończona
  Build=Buduj
  BuildSpeed=Szybkosc budowania
  BuildingNoPlace=Budynek nie moze byc tu ulokowany
-@@ -28,9 +30,8 @@
+@@ -22,31 +27,44 @@ CameraModeSet=Tryb kamery ustawiony na
+ CanRepair=Moze naprawic
+ Cancel=Anuluj
+ Canceled=Anulowane
++ChatMode=Tryb pogawedki
+ Closed=Zamkniete
+ Command=Dowodztwo
+ CommonCommand=Dowodzenie grupa
++Connect=Polacz
++Connected=Polaczone
++ConnectedToServer=Polaczono do serwera
  Config=Opcje
  Consume=Zzerac
  Control=Kontrola
@@ -24,10 +39,20 @@
 -CurrentGlestIniSettings=Obecne ustawienia glest.ini
 +Cpu=Komputer
 +CpuUltra=Komp. (Ultra)
++CustomGame=Niestandardowa gra
  Deaths=Polegli
  Defeat=Kleska
  Deleting=Usuwanie
-@@ -39,14 +40,15 @@
++Difficulty=Trudnosc
++Difficulty0=Bardzo latwo
++Difficulty1=Latwo
++Difficulty2=Srednio
++Difficulty3=Trudno
++Difficulty4=Bardzo Trudno
++Difficulty5=Oblakanczo
+ Disabled=Zablokowane
++Disconnect=Rozlacz
+ Discount=Znizka
  Ep=EP
  EpCost=Koszt EP
  Exit=Wyjscie
@@ -49,14 +74,17 @@
  GamePaused=Gra zapauzowana
  GameResumed=Gra wznowiona
  GameSpeedSet=Szybkosc gry ustawiona na
-@@ -60,13 +62,15 @@
+@@ -59,67 +77,81 @@ Initializing=Inicjalizacja
+ InvalidOrder=Polecenie jest nieprawidlowe
  InvalidPosition=Pozycja jest nieprawidlowa
  Kills=Zabici
++JoinGame=Dolacz do gry
  Languaje=Jezyk
 +LinuxPort=Wersja dla Linuxa
  Load=Zaladunek
- LoadedSpeed=Szybkosc zaladunku
+-LoadedSpeed=Szybkosc zaladunku
 -Loading=Laduje sie
++LoadedSpeed=Szybkosc z zaladunkiem
 +Loading=Ladowanie
  Map=Mapa
 -MaxFilterAnisotropy=Max Filter Anizotropii
@@ -69,8 +97,15 @@
  MeetingPoint=Miejsce spotkania
  Morph=Przemien
  MorphSpeed=Szybkosc przemiany
-@@ -78,14 +82,14 @@
+ Move=Rusz
+ MusicVolume=Glosnosc muzyki
++Network=Siec
+ No=Nie
++NotConnected=Nie polaczono
+ None=Zaden
+ Normal=normalne
  Ok=OK
++Options=Opcje
  OpenGlExtensions=Rozszerzenia
  OpenGlInfo=OpenGL Info
 -OpenGlMaxLights=Max swiatlo
@@ -88,7 +123,10 @@
  OpenGlVersion=Wersja
  OrdersOnQueue=Polecenia w kolejce
  Play=Graj
-@@ -95,21 +99,22 @@
+ PlayNow=Graj teraz!
+ Player=Gracz
++Port=Port
+ Produce=Produkuj
  Producing=Produkowanie
  ProductionSpeed=Szybkosc produkcji
  Programming=Programowanie
@@ -107,6 +145,10 @@
 -ShadowMapLike=Mapa cieni
 -ShadowVolumes=Mapa glosnosci
 +Score=Wynik
++Server=Serwer
++ServerType=Typ serwera
++ServerTypeNew=Nowy
++ServerTypePrevious=Poprzedni
 +ShadowMapping=Mapa cieni
  Shadows=Cienie
  Sight=Wzrok
@@ -116,9 +158,23 @@
  SomeOrdersFailed=Niektore polecenia nie moga byc wydane
  SoundAndMusic=Dzwiek i muzyka
  SplashRadius=Promien rozbryzgu
-@@ -135,5 +140,5 @@
+ StartingToUpgrade=Zaczynajac ulepszenie
+ Stop=Stop
+ Store=Skladuje
++Tip=Wskazowka
+ Team=Druzyna
+ TechTree=Drzewo technologii
+ Textures3D=Tekstury 3D
+ Tileset=Srodowisko
++Tutorial=Samouczek
+ UnitAddedToProductionQueue=Jednostka dodana do kolejki produkcji
+ UnitNoPlace=Jednostka nie moze zostac umieszczona
+ UnitNoReqs=Jednostka nie spelnia wymagan
+@@ -134,6 +166,7 @@ Upgrades=Ulepszenia
+ Upgrading=Ulepszanie
  Victory=Zwyciestwo
  WalkSpeed=Predkosc
++WaitingHost=Oczekiwanie na serwer
  Yes=Tak
 -YouLose=Przegrales
 -YouWin=Wygrales

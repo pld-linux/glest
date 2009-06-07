@@ -1,0 +1,11 @@
+--- glest-3.2.2/mk/linux/glest.ini.wiget	2009-06-07 10:45:29.000000000 +0200
++++ glest-3.2.2/mk/linux/glest.ini	2009-06-07 10:46:36.000000000 +0200
+@@ -23,7 +23,7 @@ FogOfWarSmoothingFrameSkip=3
+ FontConsole=-*-*-*-*-*-*-12-*-*-*-*-*-*-*
+ FontDisplay=-*-*-*-*-*-*-12-*-*-*-*-*-*-*
+ FontMenu=-*-*-*-*-*-*-12-*-*-*-*-*-*-*
+-Lang=english.lng
++Lang=english
+ MaxLights=1
+ NetworkConsistencyChecks=1
+ PhotoMode=0

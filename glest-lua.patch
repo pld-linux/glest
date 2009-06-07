@@ -1,0 +1,28 @@
+--- glest-3.2.2/mk/linux/mk/autoconf/check_lua.m4.wiget	2009-06-06 13:11:59.000000000 +0200
++++ glest-3.2.2/mk/linux/mk/autoconf/check_lua.m4	2009-06-06 13:13:06.000000000 +0200
+@@ -43,6 +43,25 @@ fi
+ AC_CHECK_LIB([m], [pow], lib_m=" -lm")
+ AC_LANG_PUSH([C++])
+ for p in $paths ; do
++    AC_MSG_CHECKING([for lua.hpp in ${p}/include/lua51])
++    if test -f ${p}/include/lua51/lua.hpp; then
++        AC_MSG_RESULT([yes])
++        save_CFLAGS=$CFLAGS
++        save_LDFLAGS=$LDFLAGS
++        CFLAGS="$CFLAGS"
++        LDFLAGS="-L${p}/lib $LDFLAGS $lib_m"
++        AC_CHECK_LIB(lua51, luaL_newstate,
++            [
++            LUA_AVAILABLE=yes
++            LUA_LIBS="-L${p}/lib -llua51"
++            LUA_CFLAGS="-I${p}/include/lua51"
++            ])
++        CFLAGS=$save_CFLAGS
++        LDFLAGS=$save_LDFLAGS
++        break
++    else
++        AC_MSG_RESULT([no])
++    fi
+     AC_MSG_CHECKING([for lua.hpp in ${p}/include/lua5.1])
+     if test -f ${p}/include/lua5.1/lua.hpp; then
+         AC_MSG_RESULT([yes])

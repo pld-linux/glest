@@ -1,0 +1,10 @@
+--- glest-3.2.2/source/shared_lib/sources/platform/posix/socket.cpp.wiget	2009-06-06 13:20:06.000000000 +0200
++++ glest-3.2.2/source/shared_lib/sources/platform/posix/socket.cpp	2009-06-06 13:21:13.000000000 +0200
+@@ -12,6 +12,7 @@
+ #include <cstdlib>
+ #include <stdexcept>
+ #include <sstream>
++#include <cstdio>
+ #if defined(HAVE_SYS_IOCTL_H)
+ #define BSD_COMP /* needed for FIONREAD on Solaris2 */
+ #include <sys/ioctl.h>
