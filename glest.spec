@@ -69,8 +69,8 @@ BuildRequires:	libogg-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	unzip
 BuildRequires:	xerces-c-devel
-Buildrequires:	lua51-devel
-Buildrequires:	xorg-lib-libXdamage-devel
+BuildRequires:	lua51-devel
+BuildRequires:	xorg-lib-libXdamage-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
