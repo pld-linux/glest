@@ -107,8 +107,8 @@ jam
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_sysconfdir}/%{name},%{_bindir},%{_pixmapsdir},%{_desktopdir},%{_libdir}}
-install mk/linux/glest $RPM_BUILD_ROOT%{_libdir}/%{name}_game
+install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_sysconfdir}/%{name},%{_bindir},%{_pixmapsdir},%{_desktopdir},%{_libexecdir}}
+install mk/linux/glest $RPM_BUILD_ROOT%{_libexecdir}/glest_game
 install mk/linux/glest.ini $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/glest.ini
 cd glest_game
 %{__rm} glest.*
@@ -140,7 +140,7 @@ fi
 [ ! -d "${GLEST_HOME}/screens" ] && mkdir -p ${GLEST_HOME}/screens
 
 cd ${GLEST_HOME}
-%{_libdir}/glest_game
+%{_libexecdir}/glest_game
 EOF
 
 %clean
@@ -152,7 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/glest
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/glest/glest.ini
 %attr(755,root,root) %{_bindir}/glest
-%attr(755,root,root) %{_libdir}/glest_game
+%attr(755,root,root) %{_libexecdir}/glest_game
 %{_datadir}/%{name}
 %{_desktopdir}/glest.desktop
 %{_pixmapsdir}/glest.png
