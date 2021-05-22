@@ -10,9 +10,9 @@ Version:	3.2.2
 Release:	3
 License:	GPL v2+, Creative Commons Attribution-ShareAlike
 Group:		X11/Applications/Games
-Source0:	http://dl.sourceforge.net/glest/%{name}_source_%{version}.zip
+Source0:	http://downloads.sourceforge.net/glest/%{name}_source_%{version}.zip
 # Source0-md5:	1e961f49c1fb0e59e1e1483d66099a55
-Source1:	http://dl.sourceforge.net/glest/%{name}_data_%{data_ver}.zip
+Source1:	http://downloads.sourceforge.net/glest/%{name}_data_%{data_ver}.zip
 # Source1-md5:	d67de58e0912925e8ddbd0b25a0d2b50
 Source2:	http://www.glest.org/files/contrib/translations/catala_1.2.2.zip
 # Source2-md5:	0ff52ece4c408f3a01a54dda8f17e994
@@ -57,7 +57,7 @@ Patch0:		%{name}-polish.patch
 Patch1:		%{name}-lua.patch
 Patch2:		%{name}-cstdio.patch
 Patch3:		%{name}-ini.patch
-URL:		http://www.glest.org/
+URL:		http://glest.org/
 BuildRequires:	Mesa-libGLU-devel
 BuildRequires:	Mesa-libGLw-devel
 BuildRequires:	OpenAL-devel
@@ -111,11 +111,11 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_sysconfdir}/%{name},%{_bindir}
 install mk/linux/glest $RPM_BUILD_ROOT%{_libdir}/%{name}_game
 install mk/linux/glest.ini $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/glest.ini
 cd glest_game
-rm glest.*
-rm -rf screens
-cp -r ./* $RPM_BUILD_ROOT%{_datadir}/%{name}
+%{__rm} glest.*
+%{__rm} -r screens
+cp -pr * $RPM_BUILD_ROOT%{_datadir}/%{name}
 for LNG in ../*.lng; do
-	install $LNG $RPM_BUILD_ROOT%{_datadir}/%{name}/data/lang/
+	install $LNG $RPM_BUILD_ROOT%{_datadir}/%{name}/data/lang
 done
 install %{SOURCE50} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE51} $RPM_BUILD_ROOT%{_pixmapsdir}
@@ -149,9 +149,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc docs/readme.txt docs/readme_linux.txt docs/code_license.txt docs/data_license.txt
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
+%dir %{_sysconfdir}/glest
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/glest/glest.ini
 %attr(755,root,root) %{_bindir}/glest
 %attr(755,root,root) %{_libdir}/glest_game
 %{_datadir}/%{name}
-%{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
+%{_desktopdir}/glest.desktop
+%{_pixmapsdir}/glest.png
