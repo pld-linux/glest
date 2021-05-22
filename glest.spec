@@ -58,18 +58,22 @@ Patch1:		%{name}-lua.patch
 Patch2:		%{name}-cstdio.patch
 Patch3:		%{name}-ini.patch
 URL:		http://glest.org/
-BuildRequires:	Mesa-libGLU-devel
-BuildRequires:	Mesa-libGLw-devel
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-devel
+BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	SDL-devel >= 1.2.5
+BuildRequires:	autoconf >= 2.54
+BuildRequires:	automake
 BuildRequires:	dos2unix
 BuildRequires:	jam >= 2.5
 BuildRequires:	libogg-devel
+BuildRequires:	libstdc++-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	unzip
 BuildRequires:	xerces-c-devel
-BuildRequires:	lua51-devel
+BuildRequires:	lua51-devel >= 5.1
+BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
+BuildRequires:	wxGTK2-unicode-gl-devel >= 2.6.0
 BuildRequires:	xorg-lib-libXdamage-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -101,6 +105,7 @@ chmod +x mk/linux/autogen.sh
 cd mk/linux
 ./autogen.sh
 %configure \
+	--with-wx-config=wx-gtk2-unicode-config \
 	--with-x \
 	--enable-optimize 
 jam
