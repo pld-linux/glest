@@ -94,11 +94,11 @@ for file in xml ini log txt html lng; do
 done
 find mk -noleaf -type f -exec dos2unix '{}' \;
 
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 dos2unix source/shared_lib/sources/platform/posix/socket.cpp
-%patch2 -p1
-%patch3 -p1
+%patch -P2 -p1
+%patch -P3 -p1
 chmod +x mk/linux/autogen.sh
 
 %build
